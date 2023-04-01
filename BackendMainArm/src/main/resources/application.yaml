@@ -1,0 +1,55 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: youtube_arm
+
+#-------------------Token
+app:
+  token:
+    SECRET: ARM_NATTARAT_999
+    ISSUER: BRACKEND2023_ARM
+
+
+#------------MultipartFile
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 15MB
+      max-request-size: 1700MB
+  #------Email
+#  mail:
+#    host: smtp.gmail.com
+#    post: 587
+#    username: Nattarat2023@gmail.com
+#    password: onklslawqnyilegx
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+
+
+#-------------------Kafka
+server:
+  port: 9000
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      group-id: "ARM_NATTARAT_DEECHOO"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+#  # Threshold after which files are written to disk.
+#  spring.servlet.multipart.file-size-threshold=2KB
+#  # Max file size.
+#  spring.servlet.multipart.max-file-size=200MB
+#  # Max Request Size
+#  spring.servlet.multipart.max-request-size=215MB
